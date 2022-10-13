@@ -12,15 +12,15 @@ AWS_REGION=us-east-1
 # encrypt volume
 go run main.go encryptv -v aws://{us-east-1a}/vol-xxxxxxxxxxx
 # get volume info
-go run main.go getv -i <volume id>
+go run main.go volumes get -i <volume id>
 # create snapshot for volume
-go run main.go creates -i <volume id>  
+go run main.go snapshots create -i <volume id>  
 # get snapshot 
-go run main.go gets -i <snapshot id>  
+go run main.go snapshots get -i <snapshot id>  
 # copy snapshot
-go run main.go copy -i <snapshot id>
+go run main.go snapshots copy -i <snapshot id>
 # create volume from snapshot
-go run main.go createv -i <snapshot id> -a us-east-1a
+go run main.go volumes create -i <snapshot id> -a us-east-1a
 # get persisitent volumes, if multiple context, can add arg -c contextname
-go run main.go getpvs
+go run main.go pvs get
 ```
