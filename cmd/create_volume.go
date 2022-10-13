@@ -12,19 +12,19 @@ var az string
 var sid string
 
 func init() {
-	rootCmd.AddCommand(createVCmd)
+	volumesCmd.AddCommand(createVCmd)
 	createVCmd.Flags().StringVarP(&profile, "profile", "p", "sandbox-services", "aws profile to use")
 	createVCmd.Flags().StringVarP(&sid, "sid", "i", "", "snapshot id, required")
 	createVCmd.Flags().StringVarP(&az, "az", "a", "", "volume availability zone, required")
 }
 
 var createVCmd = &cobra.Command{
-	Use:   "createv",
+	Use:   "create",
 	Short: "create volume from snapshot",
 	Long:  "create volume from snapshot",
 	RunE:  createV,
 	Example: `
-go run main.go createv -i snap-xxxxxx -a ap-southeast-2b
+go run main.go volumes create -i snap-xxxxxx -a ap-southeast-2b
 `,
 }
 

@@ -9,8 +9,8 @@ import (
 )
 
 func init() {
-	rootCmd.AddCommand(copySPsCmd)
-	rootCmd.AddCommand(copySPCmd)
+	snapshotsCmd.AddCommand(copySPsCmd)
+	snapshotsCmd.AddCommand(copySPCmd)
 	copySPCmd.Flags().StringVarP(&profile, "profile", "p", "sandbox-services", "aws profile to use")
 	copySPCmd.Flags().StringArrayVarP(&ids, "ids", "i", nil, "snapshot ids")
 

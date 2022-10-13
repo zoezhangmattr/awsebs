@@ -9,19 +9,19 @@ import (
 )
 
 func init() {
-	rootCmd.AddCommand(createSPCmd)
+	snapshotsCmd.AddCommand(createSPCmd)
 	createSPCmd.Flags().StringVarP(&profile, "profile", "p", "sandbox-services", "aws profile to use")
 	createSPCmd.Flags().StringArrayVarP(&ids, "ids", "i", nil, "volume ids")
 
 }
 
 var createSPCmd = &cobra.Command{
-	Use:   "creates",
+	Use:   "create",
 	Short: "create snapshot from volume id",
 	Long:  "create snapshot from volume id",
 	RunE:  createS,
 	Example: `
-go run main.go creates -i vol-xxxxxx
+go run main.go snapshot create -i vol-xxxxxx
 	`,
 }
 

@@ -10,12 +10,12 @@ import (
 var profile string
 
 func init() {
-	rootCmd.AddCommand(listSPCmd)
+	snapshotsCmd.AddCommand(listSPCmd)
 	listSPCmd.Flags().StringVarP(&profile, "profile", "p", "sandbox-services", "aws profile to use")
 }
 
 var listSPCmd = &cobra.Command{
-	Use:   "ls",
+	Use:   "list",
 	Short: "list all snapshots",
 	Long:  "list all snapshots",
 	RunE:  listS,

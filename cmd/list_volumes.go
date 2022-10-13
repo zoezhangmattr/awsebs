@@ -8,12 +8,12 @@ import (
 )
 
 func init() {
-	rootCmd.AddCommand(listVCmd)
+	volumesCmd.AddCommand(listVCmd)
 	listVCmd.Flags().StringVarP(&profile, "profile", "p", "sandbox-services", "aws profile to use")
 }
 
 var listVCmd = &cobra.Command{
-	Use:   "lv",
+	Use:   "list",
 	Short: "list all volumes",
 	Long:  "list all volumes",
 	RunE:  listV,

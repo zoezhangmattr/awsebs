@@ -8,18 +8,18 @@ import (
 )
 
 func init() {
-	rootCmd.AddCommand(getVCmd)
+	volumesCmd.AddCommand(getVCmd)
 	getVCmd.Flags().StringVarP(&profile, "profile", "p", "sandbox-services", "aws profile to use")
 	getVCmd.Flags().StringArrayVarP(&ids, "ids", "i", nil, "volume ids")
 }
 
 var getVCmd = &cobra.Command{
-	Use:   "getv",
+	Use:   "get",
 	Short: "get volume by id",
 	Long:  "get volume by id",
 	RunE:  getV,
 	Example: `
-go run main.go getv -i xxx -i xxx
+go run main.go volumes get -i xxx -i xxx
 	`,
 }
 

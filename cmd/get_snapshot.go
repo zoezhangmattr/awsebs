@@ -11,18 +11,18 @@ import (
 var ids []string
 
 func init() {
-	rootCmd.AddCommand(getSPCmd)
+	snapshotsCmd.AddCommand(getSPCmd)
 	getSPCmd.Flags().StringVarP(&profile, "profile", "p", "sandbox-services", "aws profile to use")
 	getSPCmd.Flags().StringArrayVarP(&ids, "ids", "i", nil, "snapshot ids")
 }
 
 var getSPCmd = &cobra.Command{
-	Use:   "gets",
+	Use:   "get",
 	Short: "get snapshots by id",
 	Long:  "get snapshots by id",
 	RunE:  getS,
 	Example: `
-go run main.go gets -i xxx -i xxx
+go run main.go snapshot get -i xxx -i xxx
 	`,
 }
 

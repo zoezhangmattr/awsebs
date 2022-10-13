@@ -11,17 +11,17 @@ import (
 var k8sc string
 
 func init() {
-	rootCmd.AddCommand(getPVSCmd)
+	pvsCmd.AddCommand(getPVSCmd)
 	getPVSCmd.Flags().StringVarP(&k8sc, "context", "c", "sandbox", "k8s context")
 }
 
 var getPVSCmd = &cobra.Command{
-	Use:   "getpvs",
+	Use:   "get",
 	Short: "get all pv",
 	Long:  "get all pv",
 	RunE:  getPVS,
 	Example: `
-go run main.go getpvs
+go run main.go pvs get
 	`,
 }
 

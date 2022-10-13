@@ -13,18 +13,18 @@ import (
 var vid string //aws://us-west-2a/vol-060c53922b1b43414
 
 func init() {
-	rootCmd.AddCommand(encryptVCmd)
+	volumesCmd.AddCommand(encryptVCmd)
 	encryptVCmd.Flags().StringVarP(&profile, "profile", "p", "sandbox-services", "aws profile to use")
 	encryptVCmd.Flags().StringVarP(&vid, "vid", "v", "", "volume id return from pv, required")
 }
 
 var encryptVCmd = &cobra.Command{
-	Use:   "encryptv",
-	Short: "encryptv volume from snapshot",
-	Long:  "encryptv volume from snapshot",
+	Use:   "encrypt",
+	Short: "encrypt volume from snapshot",
+	Long:  "encrypt volume from snapshot",
 	RunE:  encryptV,
 	Example: `
-go run main.go encryptv -v aws://us-west-2a/vol-060c53922b1b43414
+go run main.go volumes encrypt -v aws://us-west-2a/vol-060c53922b1b43414
 `,
 }
 

@@ -19,7 +19,7 @@ func GetPVs(ctx context.Context, c *kubernetes.Clientset) error {
 	}).Info("done")
 	for _, j := range pvl.Items {
 		logger.WithFields(logger.Fields{
-			"volume_id":    j.Spec.AWSElasticBlockStore.VolumeID,
+			// "volume_id":    j.Spec.AWSElasticBlockStore.VolumeID,
 			"storageclass": j.Spec.StorageClassName,
 			"claim":        j.Spec.ClaimRef.Name,
 			"name":         j.Name,
